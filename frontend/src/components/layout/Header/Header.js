@@ -1,6 +1,8 @@
 import React from "react";
 import { ReactNavbar } from "overlay-navbar";
+import {} from "react-icons";
 import logo from "../../../assets/logo/logo.png";
+import profileImg from "../../../assets/images/profileImg.png";
 
 const Header = () => {
   const options = {
@@ -16,7 +18,7 @@ const Header = () => {
     link3Text: "Contact",
     link4Text: "About",
     link1Url: "/",
-    link2Url: "/product",
+    link2Url: "/products",
     link3Url: "/contact",
     link4Url: "/about",
     link1Size: "1.3vmax",
@@ -32,6 +34,16 @@ const Header = () => {
     link1Margin: "1vmax",
     link3Margin: "0",
     link4Margin: "1vmax",
+    // searchIcon: true,
+    // SearchIconElement: { profileImg },
+    // searchIconMargin: "0",
+    // searchIconUrl: "/Search",
+    // searchIconSize: "2vmax",
+    // searchIconColor: "white",
+    // searchIconColorHover: "#eb4034",
+    searchIconTransition: 0.5,
+    searchIconAnimationTime: 2,
+    profileIconColor: "#eb4034",
     profileIconColor: "rgba(35,35,35,0.8)",
     searchIconColor: "rgba(35,35,35,0.8)",
     cartIconColor: "rgba(35,35,35,0.8)",
