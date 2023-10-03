@@ -15,6 +15,7 @@ const Products = () => {
   const params = useParams();
   const alert = useAlert();
   const [currentPage, setCurrentPage] = useState(1);
+  const [price, setPrice] = useState([0, 100000]);
   const { loading, error, products, productsCount, resultPerPage } =
     useSelector((state) => state.products);
   const keyword = params.keyword;
@@ -24,11 +25,15 @@ const Products = () => {
       alert.error(error);
       dispatch(clearErrors());
     }
-    dispatch(getAllProducts(keyword, currentPage));
-  }, [dispatch, error, alert, params, keyword, currentPage]);
+    dispatch(getAllProducts(keyword, currentPage, price));
+  }, [dispatch, error, alert, params, keyword, currentPage, price]);
 
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
+  };
+
+  const priceHandler = (event, newPrice) => {
+    setPrice(newPrice);
   };
   return (
     <Fragment>
@@ -47,7 +52,17 @@ const Products = () => {
               ))}
           </div>
 
-          <div className="filterBox"></div>
+          <div className="filterBox">
+            <Typography>Price</Typography>
+            <Slider
+              value={price}
+              onChange={priceHandler}
+              valueLabelDisplay="auto"
+              aria-labelledby="range-slider"
+              min={0}
+              max={100000}
+            />
+          </div>
 
           {resultPerPage < productsCount && (
             <div className="paginationBox">
